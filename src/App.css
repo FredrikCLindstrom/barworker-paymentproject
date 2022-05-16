@@ -1,38 +1,35 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.adminBtn{
+  margin: 1% 2%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#App-Navbar{
+  border: solid crimson;
+  position: relative;
+  top: 0px;
+  width: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#ButtonsWithFunctions-btns{
+  border: solid gold;
+  position: relative;
+}
+.wrapper{
+  border: solid black;
+}
+#MenuList--Food{
+  border: dotted silver;
+  list-style: none;
+}
+.Menu--listOfItems{
+  border: solid silver;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  flex-direction: row;
 }
-
-.App-link {
-  color: #61dafb;
+#Menu--listOff{
+  background-color: indianred;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#Menu--listOn{
+  background-color: darkseagreen;
 }
