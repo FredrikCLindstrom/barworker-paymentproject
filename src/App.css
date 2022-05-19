@@ -5,31 +5,35 @@
   margin: 1% 2%;
 }
 #App-Navbar{
-  border: solid crimson;
+  /*border: solid crimson;*/
   position: relative;
   top: 0px;
   width: 100%;
 }
 #ButtonsWithFunctions-btns{
-  border: solid gold;
+  /*border: solid gold;*/
   position: relative;
 }
 .wrapper{
+  margin: 2%;
+  padding: 2%;
   border: solid black;
+  background-color: honeydew;
 }
-#MenuList--Food{
-  border: dotted silver;
-  list-style: none;
-}
+
 .Menu--listOfItems{
   border: solid silver;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-}
-#Menu--listOff{
   background-color: indianred;
 }
+
 #Menu--listOn{
   background-color: darkseagreen;
+}
+
+#MenuList--description{
+  background-color: silver;
+  font-size: x-large;
 }
