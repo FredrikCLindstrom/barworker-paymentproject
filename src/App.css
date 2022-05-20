@@ -2,7 +2,7 @@
   text-align: center;
 }
 .adminBtn{
-  margin: 1% 2%;
+  margin: 0.1% 0.1%;
 }
 #App-Navbar{
   /*border: solid crimson;*/
@@ -15,8 +15,8 @@
   position: relative;
 }
 .wrapper{
-  margin: 2%;
-  padding: 2%;
+  margin: 0%;
+  padding: 0%;
   border: solid black;
   background-color: honeydew;
 }
@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: indianred;
+  background-color: cornsilk;
 }
 
 #Menu--listOn{
@@ -36,4 +36,7 @@
 #MenuList--description{
   background-color: silver;
   font-size: x-large;
+}
+.nameOfItem{
+  border: solid black;
 }

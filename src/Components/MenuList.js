@@ -190,6 +190,23 @@ function MenuList() {
         return
     }
 
+    function deleteItemForever(item, e) {
+
+        console.log(item, " x item")
+        console.log(e.target.value, " x e")
+        let itemId=e.target.value;
+        put("DeleteItem/" + itemId)
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.log("Error deleting Item: ", error);
+            });
+
+        reloadPage();
+        return
+    }
+
     function changeThePrice(input, item) {
         console.log(" input: ", input, " item: ", item)
         put("ChangeThePriceOfItem/" + item.id + "/" + input)
@@ -225,7 +242,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing percentage: ", error);
             });
-       // reloadPage()
+        reloadPage()
 
     }
 
@@ -237,6 +254,18 @@ function MenuList() {
             })
             .catch((error) => {
                 console.log("Error changing Item name: ", error);
+            });
+        reloadPage()
+    }
+
+    function changeTheItemType(input, item) {
+        console.log(" input: ", input, " item: ", item)
+        put("ChangeTheItemType/" + item.id + "/" + input)
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.log("Error changing Item type: ", error);
             });
         reloadPage()
     }
@@ -279,8 +308,6 @@ function MenuList() {
     }
 
 
-
-
     return (
         <>
             {/*foodItem*/}
@@ -300,6 +327,8 @@ function MenuList() {
                 newNameRefs={newNameRefs}
                 newPriceRefs={newPriceRefs}
 
+                deleteItemForever={deleteItemForever}
+
             />
 
             {/*snacksItem*/}
@@ -318,6 +347,8 @@ function MenuList() {
                 reInstateItemToMenu={reInstateItemToMenu}
                 newNameRefs={newNameRefs}
                 newPriceRefs={newPriceRefs}
+
+                deleteItemForever={deleteItemForever}
 
             />
 
@@ -341,6 +372,8 @@ function MenuList() {
                 newNameRefs={newNameRefs}
                 newPriceRefs={newPriceRefs}
                 newVolumeRefs={newVolumeRefs}
+
+                deleteItemForever={deleteItemForever}
 
             />
 
@@ -367,12 +400,15 @@ function MenuList() {
                 changeThePrice={changeThePrice}
                 changeTheVolume={changeTheVolume}
                 changeThePercentage={changeThePercentage}
+                changeTheItemType={changeTheItemType}
                 reInstateItemToMenu={reInstateItemToMenu}
                 newNameRefs={newNameRefs}
                 newPriceRefs={newPriceRefs}
                 newVolumeRefs={newVolumeRefs}
                 newPercentageRefs={newPercentageRefs}
                 newItemTypeRefs={newItemTypeRefs}
+
+                deleteItemForever={deleteItemForever}
 
             />
 

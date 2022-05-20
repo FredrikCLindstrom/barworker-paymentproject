@@ -106,5 +106,7 @@ export default function useFetch(baseUrl) {
     });
   }
 
+
+
   return { get, post, put, loading };
 }

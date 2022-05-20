@@ -1,3 +1,5 @@
+import {Button} from "react-bootstrap";
+
 function FoodOrSnacks(props){
     //This is FoodItem
 
@@ -35,8 +37,8 @@ function FoodOrSnacks(props){
                         return (
                             <li className="Menu--listOfItems" id={item.id} key={index} ref={el => props.newNameRefs.current[index] = el}>
 
-                                <p>{`${item.nameOfItem}`}</p>
-                                <div >
+                                <div className="nameOfItem">{`${item.nameOfItem}`}</div>
+                                <div className="nameOfItem">
                                     <label>New Name:</label>
                                     <input value={props.newNameRefs[index]} type="text" onChange={e => props.newNameRefs[index]=(e.target.value)} placeholder={item.nameOfItem}/>
                                     <button onClick={() => props.changeTheName(props.newNameRefs[index], item)}>go</button>
@@ -54,13 +56,17 @@ function FoodOrSnacks(props){
                                 {props.typeItem == "DrinkableAlcoholicItem"  && <div>
                                     <label>New Percentage:</label>
                                     <input value={props.newPercentageRefs[index]} type="number" onChange={e => props.newPercentageRefs[index]=(e.target.value)} placeholder={item.percentageAlcohol}/>
+                                    <button onClick={() => props.changeThePercentage(props.newPercentageRefs[index], item)}>go</button>
 
                                     <label>New type:</label>
                                     <input value={props.newItemTypeRefs[index]} type="text" onChange={e => props.newItemTypeRefs[index]=(e.target.value)} placeholder={item.type}/>
-                                    <button onClick={() => props.changeThePercentage(props.newItemTypeRefs[index], item)}>go</button></div>}
+                                    <button onClick={() => props.changeTheItemType(props.newItemTypeRefs[index], item)}>go</button></div>}
 
 
-                                <button value={item.id} className="adminBtn" onClick={(e) => props.reInstateItemToMenu(item,e)}>ReInstate {item.nameOfItem}</button>
+                                <button type="button" className="btn btn-outline-success" value={item.id} onClick={(e) => props.reInstateItemToMenu(item,e)}>ReInstate {item.nameOfItem}</button>
+
+                                <button type="button" className="btn btn-outline-danger" value={item.id} onClick={(e) => props.deleteItemForever(item,e)}>Delete {item.nameOfItem}</button>
+
 
                             </li>
                         )
@@ -69,14 +75,24 @@ function FoodOrSnacks(props){
                 <nav id="MenuList--description">{`Create New ${props.typeItem}`}</nav>
 
                 <div >
+
                     <label>New Item Name:</label>
                     <input value={props.newItemName} type="text" onChange={e => props.setNewItemName(e.target.value)} placeholder={"New item Name"}/>
                     <input value={props.newItemPrice} type="number" onChange={e => props.setNewItemPrice(e.target.value)} placeholder={"New item price"}/>
                     {props.typeItem == "DrinkableItem"  && <input value={props.newItemVolume} type="number" onChange={e => props.setNewItemVolume(e.target.value)} placeholder={"New item Volume"}/>}
-                    {props.typeItem == "DrinkableAlcoholicItem"  && <input value={props.newItemType} type="text" onChange={e => props.setNewItemType(e.target.value)} placeholder={"New item type"}/>}
+                    {props.typeItem == "DrinkableAlcoholicItem"  && <input value={props.newDrinkableAlcoholicItemType} type="text" onChange={e => props.setNewDrinkableAlcoholicItemType(e.target.value)} placeholder={"New item type"}/>}
                     {props.typeItem == "DrinkableAlcoholicItem"  && <input value={props.newItemVolume} type="number" onChange={e => props.setNewItemVolume(e.target.value)} placeholder={"New item Volume"}/>}
                     {props.typeItem == "DrinkableAlcoholicItem" && <input value={props.newItemPercentage} type="number" onChange={e => props.setNewItemPercentage(e.target.value)} placeholder={"New item Percentage"}/>}
-                    <button onClick={() => props.createNewFoodOrSnacksItem(props.newItemName, props.newItemPrice, props.newItemType, props.newItemVolume, props.newItemPercentage)}>Create</button>
+
+
+                    {((props.typeItem == "FoodItem")|| (props.typeItem == "SnacksItem")) &&
+                        <button onClick={() => props.createNewFoodOrSnacksItem(props.typeItem, props.newItemName, props.newItemPrice)}>Create</button>}
+
+                    {props.typeItem == "DrinkableItem" &&
+                        <button onClick={() => props.createNewFoodOrSnacksItem(props.newItemName, props.newItemPrice, props.newItemVolume)}>Create</button>}
+                    {props.typeItem == "DrinkableAlcoholicItem" &&
+                    <button onClick={() => props.createNewFoodOrSnacksItem(props.newItemName, props.newItemPrice, props.newDrinkableAlcoholicItemType, props.newItemVolume, props.newItemPercentage)}>Create</button>}
+
                 </div>
             </div>
 
@@ -86,3 +102,12 @@ function FoodOrSnacks(props){
     )
 }
 export default FoodOrSnacks;
+
+// <button type="button" className="btn btn-primary">Primary</button>
+// <button type="button" className="btn btn-secondary">Secondary</button>
+// <button type="button" className="btn btn-success">Success</button>
+// <button type="button" className="btn btn-danger">Danger</button>
+// <button type="button" className="btn btn-warning">Warning</button>
+// <button type="button" className="btn btn-info">Info</button>
+// <button type="button" className="btn btn-light">Light</button>
+// <button type="button" className="btn btn-dark">Dark</button>
