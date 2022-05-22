@@ -2,6 +2,7 @@ import {Button} from "react-bootstrap";
 
 function FoodOrSnacks(props){
     //This is FoodItem
+    //Todo have To fix input on change price and change name
 
     return(
 
@@ -26,7 +27,7 @@ function FoodOrSnacks(props){
                                 {item.percentageAlcohol != undefined &&
                                     <p>{`${item.percentageAlcohol} alc vol`}</p>}
 
-                                <button value={item.id} className="adminBtn" onClick={(e) => props.removeItemFromMenu(item,e)}>Remove {item.nameOfItem}</button>
+                                <button value={item.id} className="adminBtn" onClick={(e) => {props.removeItemFromMenu(item,e)}}>Remove {item.nameOfItem}</button>
                             </li>
                         )
                     })}

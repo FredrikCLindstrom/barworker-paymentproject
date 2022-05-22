@@ -1,7 +1,7 @@
 import {Button, Col, Row} from "react-bootstrap";
 import useFetch from "../hooks/useFetch";
 
-function ButtonsWithFunctions() {
+function ButtonsWithFunctions(props) {
 
     const { get, loading } = useFetch("http://localhost:8081/api/");
 
@@ -20,31 +20,37 @@ function ButtonsWithFunctions() {
     function closeTheKitchen() {
         console.log(" close the kitchen")
         connectToBackend("CloseTheKitchen")
+        props.update()
     }
 
     function removeAlcoholicBeverages() {
         console.log(" removeAlcoholicBeverages ")
         connectToBackend("RemoveAlcoholFromMenu")
+        props.update()
     }
 
     function removeAllItemsFromMenu() {
         console.log(" RemoveAllItemsFromMenu ")
         connectToBackend("RemoveAllItemsFromMenu")
+        props.update()
     }
 
     function openTheKitchen() {
         console.log(" openTheKitchen ")
         connectToBackend("OpenTheKitchen")
+        props.update()
     }
 
     function reInstateAlcoholicBeverages() {
         console.log(" reInstateAlcoholicBeverages ")
         connectToBackend("ReinstateAlcoholToMenu")
+        props.update()
     }
 
     function reInstateAlItems() {
         console.log(" reInstateAlItems ")
         connectToBackend("ReInstateAllItemsFromMenu")
+        props.update()
     }
 
     return (

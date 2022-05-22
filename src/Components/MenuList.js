@@ -4,7 +4,7 @@ import useFetch from "../hooks/useFetch";
 import FoodOrSnacks from "./FoodOrSnacks";
 import {render} from "react-dom";
 
-function MenuList() {
+function MenuList(props) {
 
     const {get, put, post} = useFetch("http://localhost:8081/api/");
 
@@ -46,11 +46,21 @@ function MenuList() {
     const DrinkableAlcoholicItem = "DrinkableAlcoholicItem";
 
 
-    useEffect(() => {
 
-            getAll()
+    // const [updateItem,setUpdateItem]=useState(1)
+    // function update(){
+    //     setUpdateItem(updateItem+1)
+    // }
 
-    },[]);
+    // useEffect(() => {
+    //
+    //         getAll()
+    //
+    //     console.log("After get all")
+    //     console.log("After testItem", testItem)
+    //
+    // },[reInstateItemToMenu, removeItemFromMenu]);
+
 
     const showFoodOnMenu=()=>{
 
@@ -152,12 +162,12 @@ function MenuList() {
         //TODO add new itemCat
     }
 
-    const reloadPage = () => {
-        document.location.reload();
+    // const reloadPage = () => {
+    //     document.location.reload();
+    //
+    // };
 
-    };
-
-    function removeItemFromMenu(item, e) {
+    const removeItemFromMenu=(item, e)=> {
 
         let itemId=e.target.value;
         put("SetOutOfStockSingleItem/" + itemId)
@@ -167,13 +177,13 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error setting Item out of stock: ", error);
             });
-        reloadPage()
+        props.update()
 
-        return
+
 
     }
 
-    function reInstateItemToMenu(item, e) {
+    const reInstateItemToMenu=(item, e)=> {
 
         console.log(item, " x item")
         console.log(e.target.value, " x e")
@@ -185,9 +195,8 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error setting Item In stock: ", error);
             });
+        props.update()
 
-        reloadPage();
-        return
     }
 
     function deleteItemForever(item, e) {
@@ -203,8 +212,8 @@ function MenuList() {
                 console.log("Error deleting Item: ", error);
             });
 
-        reloadPage();
-        return
+        props.update()
+
     }
 
     function changeThePrice(input, item) {
@@ -216,7 +225,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing price: ", error);
             });
-        reloadPage()
+        props.update()
 
     }
 
@@ -229,7 +238,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing volume: ", error);
             });
-        reloadPage()
+        props.update()
 
     }
 
@@ -242,7 +251,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing percentage: ", error);
             });
-        reloadPage()
+        props.update()
 
     }
 
@@ -255,7 +264,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing Item name: ", error);
             });
-        reloadPage()
+        props.update()
     }
 
     function changeTheItemType(input, item) {
@@ -267,7 +276,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error changing Item type: ", error);
             });
-        reloadPage()
+        props.update()
     }
 
 
@@ -280,7 +289,7 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error Creating new " + typeOfItem + ": ", error);
             });
-        reloadPage()
+        props.update()
     }
 
     function createNewDrinkableItem(newItemName, newItemPrice, newItemVolume) {
@@ -292,7 +301,8 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error Creating new " + newItemName + ": ", error);
             });
-        reloadPage()
+
+        props.update()
     }
 
     function createNewDrinkableAlcoholicItem(newItemName, newItemPrice,newItemType, newItemVolume, newItemPercantege) {
@@ -304,14 +314,22 @@ function MenuList() {
             .catch((error) => {
                 console.log("Error Creating new " + newItemName + ": ", error);
             });
-        reloadPage()
+        props.update()
     }
 
+    useEffect(() => {
+
+        setTimeout(() => {
+            getAll()
+            }, 300);
+
+    },[props.updateItem]);
 
     return (
         <>
             {/*foodItem*/}
             <FoodOrSnacks
+
                 typeItem={FoodItem}
                 OnMenu={foodOnMenu}
                 NotOnMenu={foodNotOnMenu}
@@ -333,6 +351,7 @@ function MenuList() {
 
             {/*snacksItem*/}
             <FoodOrSnacks
+
                 typeItem={SnacksItem}
                 OnMenu={snacksOnMenu}
                 NotOnMenu={snacksNotOnMenu}
@@ -354,6 +373,7 @@ function MenuList() {
 
             {/*DrinkableItem*/}
             <FoodOrSnacks
+
                 typeItem={DrinkableItem}
                 OnMenu={drinkableOnMenu}
                 NotOnMenu={drinkableNotOnMenu}
@@ -379,6 +399,7 @@ function MenuList() {
 
             {/*DrinkableAlcoholicItem*/}
             <FoodOrSnacks
+
                 typeItem={DrinkableAlcoholicItem}
                 OnMenu={drinkableAlcoholicOnMenu}
                 NotOnMenu={drinkableAlcoholicNotOnMenu}
