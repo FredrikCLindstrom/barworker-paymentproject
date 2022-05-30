@@ -56,14 +56,14 @@ function ButtonsWithFunctions(props) {
     return (
         <div id="ButtonsWithFunctions-btns">
             <Row className="mx-0">
-                <Button onClick={closeTheKitchen} className="adminBtn" as={Col} variant="danger">Close kitchen</Button>
-                <Button onClick={removeAlcoholicBeverages} className="adminBtn" as={Col} variant="danger">Remove all alcoholic beverages</Button>
-                <Button onClick={removeAllItemsFromMenu}className="adminBtn" as={Col} variant="danger">Remove all items from menu</Button>
+                <Button onClick={closeTheKitchen} className="adminBtnForActions" as={Col} variant="danger">Close kitchen</Button>
+                <Button onClick={removeAlcoholicBeverages} className="adminBtnForActions" as={Col} variant="danger">Remove all alcoholic beverages</Button>
+                <Button onClick={removeAllItemsFromMenu}className="adminBtnForActions" as={Col} variant="danger">Remove all items from menu</Button>
             </Row>
             <Row className="mx-0">
-                <Button onClick={openTheKitchen} className="adminBtn" as={Col} variant="dark">Open the kitchen</Button>
-                <Button onClick={reInstateAlcoholicBeverages} className="adminBtn" as={Col} variant="dark">Reinstate all alcoholic beverages</Button>
-                <Button onClick={reInstateAlItems} className="adminBtn" as={Col} variant="dark">Reinstate all products on menu</Button>
+                <Button onClick={openTheKitchen} className="adminBtnForActions" as={Col} variant="dark">Open the kitchen</Button>
+                <Button onClick={reInstateAlcoholicBeverages} className="adminBtnForActions" as={Col} variant="dark">Reinstate all alcoholic beverages</Button>
+                <Button onClick={reInstateAlItems} className="adminBtnForActions" as={Col} variant="dark">Reinstate all products on menu</Button>
             </Row>
             
         </div>
