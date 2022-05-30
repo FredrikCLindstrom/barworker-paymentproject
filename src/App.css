@@ -1,8 +1,16 @@
 .App {
   text-align: center;
 }
+button{
+  margin:1%;
+  border-radius: 3rem;
+}
+.adminBtnForActions{
+  margin: 0.4% 0.8%;
+}
 .adminBtn{
   margin: 0.1% 0.1%;
+  margin: 2%;
 }
 #App-Navbar{
   /*border: solid crimson;*/
@@ -15,10 +23,11 @@
   position: relative;
 }
 .wrapper{
-  margin: 0%;
-  padding: 0%;
+  margin: 2% 0.7%;
+  padding: 1%;
   border: solid black;
-  background-color: honeydew;
+  background-color: darkgrey;
+  border-radius: 3rem;
 }
 
 .Menu--listOfItems{
@@ -26,17 +35,60 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: cornsilk;
+  background-color: palevioletred;
 }
 
 #Menu--listOn{
   background-color: darkseagreen;
 }
 
-#MenuList--description{
-  background-color: silver;
+#MenuListOn--description{
+  background-color: darkolivegreen;
+  font-size: x-large;
+}
+#MenuListOff--description{
+  background-color: indianred;
   font-size: x-large;
 }
 .nameOfItem{
-  border: solid black;
+  padding: 0.3rem;
+border: black solid;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 3.3rem;
 }
+.listinorders{
+  list-style: none;
+}
+.ulinorders{
+  border: solid black;
+  margin: 2%;
+}
+.createNewItem{
+  border: solid black;
+  background-color: navajowhite;
+}
+.showMenu{
+  padding-left: 0;
+  padding: 0% 2%;
+}
+.smallerText{
+  font-size: small;
+}
+.inputAreaSmaller{
+  width: 3rem;
+}
+
+.inputAreaNormal{
+  width: 7rem;
+}
+#idName{
+  background-color: gold;
+}
+.printToMenu{
+  font-size: larger;
+  font-weight: bold;
+}
+
